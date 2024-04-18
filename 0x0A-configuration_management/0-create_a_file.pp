@@ -1,5 +1,4 @@
 # a puppet to create a file 
-
 file { '/temp/school':
   ensure  => 'present',
   path    => '/tmp/school',
