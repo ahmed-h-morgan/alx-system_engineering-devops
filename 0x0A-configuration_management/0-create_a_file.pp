@@ -1,7 +1,8 @@
 # a puppet to create a file 
 
 file { '/temp/school':
-  ensure  => 'present'
+  path    => '/tmp',
+  ensure  => 'present',
   mode    => '0744',
   owner   => 'www-data',
   group   => 'www-data',
