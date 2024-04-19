@@ -1,11 +1,14 @@
 # Using Puppet, install flask from pip3.
+
+package { 'Werkzeug':
+  ensure          => '2.1.1',
+  provider        => 'pip3',
+  name            => 'Werkzeug',
+}
+
 package { 'flask':
   ensure          => '2.1.0',
   provider        => 'pip3',
-  command         => 'sudo apt install python3-pip | pip3 install flask',
-  # command         => 'pip3 install flask',
-  # install_options => [
-  #   { '--index-url' => 'https://pypi.mycorp.com' },
-  # ]
-
+  name            => 'flask'
+  # command         => 'sudo apt install python3-flask',
 }
