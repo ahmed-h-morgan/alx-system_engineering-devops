@@ -2,8 +2,10 @@
 package { 'flask':
   ensure          => '2.1.0',
   provider        => 'pip3',
-  install_options => [
-    { '--index-url' => 'https://pypi.mycorp.com' },
-  ]
+  command         => 'sudo apt install python3-pip'
+  command         => 'pip3 install flask',
+  # install_options => [
+  #   { '--index-url' => 'https://pypi.mycorp.com' },
+  # ]
 
 }
