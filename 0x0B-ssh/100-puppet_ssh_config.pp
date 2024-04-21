@@ -1,8 +1,9 @@
 # config server using puppet
-ssh::server::host_key {'ssh_host_rsa_key':
-  private_key_content => '~/.ssh/shool/id_rsa',
-  public_key_content  => '~/.ssh/shool/id_rsa.pub',
-  options => {
-    'PasswordAuthentication' => 'no',
-  }
+# ssh_client_config.pp
+
+file { '/etc/ssh/ssh_config':
+  ensure => 'present',
+  owner   => 'ubuntu',
+  mode    => '0600',
+  content => "Host *\n IdentityFile ~/.ssh/school\n PasswordAuthentication no\n",
 }
