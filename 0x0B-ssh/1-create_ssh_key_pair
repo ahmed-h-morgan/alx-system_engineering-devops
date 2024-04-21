@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# connect to the sever
+
+ssh-keygen -b 4096 -f school -N betty
