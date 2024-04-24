@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# redirect to another page
+# setup nginx web server on an ubuntu machine
+apt-get install nginx -y;
+ufw allow 'Nginx HTTP';
+service nginx restart;
 
-# sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+file_path='/etc/nginx/sites-available/default'
+search_for='server_name _;'
+replace_with='server_name _;\n\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t}'
 
-redirection_config="location = /redirect_me/ {\n\
-    rewrite ^ /https://www.youtube.com/watch?v=QH2-TGUlwu4/ permanent;
-}"
-# sudo echo $redirection_config >> /etc/nginx/sites-available/default
-sudo sed -i "/server_name _;/a $redirection_config" /etc/nginx/sites-available/default
-sudo service nginx restart
+sed -i "s/$search_for/$replace_with/" "$file_path";
+nginx -s reload;
