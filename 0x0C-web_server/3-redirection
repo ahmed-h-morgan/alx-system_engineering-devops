@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # redirect to another page
-# sudo apt-get update -y
-# sudo apt-get install nginx -y
-# sudo ufw allow 'Nginx HTTP'
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
 # sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 redirection_config="location = /redirect_me {\n\
