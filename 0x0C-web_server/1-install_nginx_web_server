@@ -2,3 +2,4 @@
 # install Nginx on the server
 sudo apt-get install nginx
 ufw allow 'Nginx HTTP'
+sudo echo "<html><body><h1>My Site!</h1></body></html>" > /var/www/html/index.nginx-debian.html
