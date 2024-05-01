@@ -31,8 +31,8 @@ frontend http-in
 
 backend servers
     balance roundrobin
-    server web-01 100.25.141.206 check
-    server web-02 100.25.180.20 check
+    server web-01 363719-web-01 check
+    server web-02 363719-web-02 check
 " | sudo tee /etc/haproxy/haproxy.cfg
 
 # Enable and start HAProxy
