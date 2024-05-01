@@ -5,6 +5,13 @@ package { 'nginx':
   ensure => installed,
 }
 
+file { '/etc/nginx/conf.d':
+  ensure  => directory,
+  mode    => '0755',
+  owner   => 'root',
+  group   => 'root',
+}
+
 # Configure Nginx to include the custom HTTP header
 file { '/etc/nginx/conf.d/custom_http_header.conf':
   ensure  => file,
