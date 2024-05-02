@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install -y haproxy
 
 # Configure HAProxy
-echo "global
+sudo sh -c 'echo "global
     log /dev/log local0
     log /dev/log local1 notice
     chroot /var/lib/haproxy
@@ -25,15 +25,15 @@ defaults
     timeout client 50000
     timeout server 50000
 
-frontend http-in
+frontend lb-01
     bind *:80
     default_backend servers
 
 backend servers
     balance roundrobin
-    server web-01 363719-web-01 check
-    server web-02 363719-web-02 check
-" | sudo tee /etc/haproxy/haproxy.cfg
+    server 363719-web-01 100.25.141.206 check
+    server 363719-web-02 100.25.180.20 check
+" > /etc/haproxy/haproxy.cfg'
 
 # Enable and start HAProxy
 sudo systemctl enable haproxy
