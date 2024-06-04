@@ -4,26 +4,28 @@ queries the Reddit API and returns the number of subscribers
 """
 import requests
 
+
 def number_of_subscribers(subreddit):
     # Define the base URL for the Reddit API endpoint
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    
+
     # Set headers including a custom User-Agent
     # headers = {
     #     'User-Agent': 'Custom/0.1 (https://example.com)',
     # }
-    
+
     try:
         # Make a GET request to the Reddit API
         response = requests.get(url)
-        
+
         # Check if the request was successful
         if response.status_code == 200:
             # Parse the JSON response
             data = response.json()
-            
+
             # Extract the subscriber count from the data
-            # The key 'data' contains the subreddit details, and 'account_active' within it has the subscriber count
+            # The key 'data' contains the subreddit details, 
+            # and 'account_active' within it has the subscriber count
             subscriber_count = data['data']['accounts_active']
             return subscriber_count
         else:
@@ -38,7 +40,7 @@ def number_of_subscribers(subreddit):
 # Example usage
 if __name__ == "__main__":
     import sys
-    
+
     if len(sys.argv) < 2:
         print("Please pass an argument for the subreddit to search.")
     else:
