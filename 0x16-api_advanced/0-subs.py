@@ -24,7 +24,7 @@ def number_of_subscribers(subreddit):
             data = response.json()
 
             # Extract the subscriber count from the data
-            # The key 'data' contains the subreddit details, 
+            # The key 'data' contains the subreddit details,
             # and 'account_active' within it has the subscriber count
             subscriber_count = data['data']['accounts_active']
             return subscriber_count
