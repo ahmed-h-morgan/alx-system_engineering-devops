@@ -26,7 +26,7 @@ def number_of_subscribers(subreddit):
             # Extract the subscriber count from the data
             # The key 'data' contains the subreddit details,
             # and 'account_active' within it has the subscriber count
-            subscriber_count = data['data']['accounts_active']
+            subscriber_count = data['data']['subscribers']
             return subscriber_count
         else:
             # If the request was not successful, log the status code
