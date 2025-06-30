@@ -7,16 +7,14 @@ import requests
 
 def number_of_subscribers(subreddit):
     # Define the base URL for the Reddit API endpoint
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = f"https://www.reddit.com/r/{subreddit}/about.json?count=all"
 
     # Set headers including a custom User-Agent
-    # headers = {
-    #     'User-Agent': 'Custom/0.1 (https://example.com)',
-    # }
+    headers = {'User-Agent': 'MyPythonScript/1.0'}
 
     try:
         # Make a GET request to the Reddit API
-        response = requests.get(url)
+        response = requests.get(url, headers)
 
         # Check if the request was successful
         if response.status_code == 200:
